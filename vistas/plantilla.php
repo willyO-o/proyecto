@@ -10,11 +10,11 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="plugins/adminlte/css/adminlte.min.css">
-    <link rel="stylesheet" href="plugins/sweetalert2/sweetalert2.css">
-    <script src="plugins/sweetalert2/sweetalert2.all.js"></script>
+    <link rel="stylesheet" href="<?= BASE_URL ?>plugins/adminlte/css/adminlte.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>plugins/sweetalert2/sweetalert2.css">
+    <script src="<?= BASE_URL ?>plugins/sweetalert2/sweetalert2.all.js"></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -31,7 +31,11 @@
         <!-- Content Wrapper. Contains page content -->
 
         <div class="content-wrapper">
-            <?php include 'vistas\principal.php'; ?>
+            <?php
+            if (isset($vista)) {
+                include 'vistas/' . $vista . '.php';
+            }
+            ?>
         </div>
         <!-- /.content-wrapper -->
 
@@ -53,11 +57,11 @@
     <!-- REQUIRED SCRIPTS -->
 
     <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="<?= BASE_URL ?>plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= BASE_URL ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="plugins/adminlte/js/adminlte.min.js"></script>
+    <script src="<?= BASE_URL ?>plugins/adminlte/js/adminlte.min.js"></script>
 </body>
 
 </html>

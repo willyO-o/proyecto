@@ -22,7 +22,7 @@ class Plantilla
 
             $directorio =  getcwd();
 
-            if (!file_exists($directorio.'/controladores/' . $clase . '.php')) {
+            if (!file_exists($directorio . '/controladores/' . $clase . '.php')) {
                 throw new Exception('El controlador no existe');
             }
 
@@ -34,7 +34,12 @@ class Plantilla
                 throw new Exception('El metodo no existe');
             }
 
-            $controlador->$metodo();
+            if (empty($_GET["parametro"])) {
+                $controlador->$metodo();
+            } else {
+                $controlador->$metodo($_GET["parametro"]);
+            }
+
 
         } catch (Exception $e) {
             echo $e->getMessage();

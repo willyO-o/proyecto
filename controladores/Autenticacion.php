@@ -9,6 +9,7 @@ class Autenticacion
 
     public function registro()
     {
-        include 'vistas/registro.php';
+
+         include 'vistas/registro.php';
     }
 }

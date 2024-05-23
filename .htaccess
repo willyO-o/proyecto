@@ -2,4 +2,5 @@ Options All -Indexes
 
 RewriteEngine On
 
-RewriteRule ^([-a-zA-Z0-9/]+)$ index.php?ruta=$1
+# Ruta con parámetro opcional para cualquier combinación de rutas
+RewriteRule ^(.*?)/?([0-9]*)$ index.php?ruta=$1&parametro=$2 [QSA,L]
