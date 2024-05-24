@@ -40,7 +40,7 @@ class Categoria
         $categoria = post('categoria');
 
         if (empty($categoria)) {
-            $_GET['error'] = 'El campo categoria es obligatorio';
+            $_SESSION['error'][] = 'El campo categoria es obligatorio';
 
             return    header('Location: ' . url('categoria/crear'));
         }
@@ -72,7 +72,7 @@ class Categoria
         $idCategoria = post('id_categoria');
 
         if (empty($categoria)) {
-            $_GET['error'] = 'El campo categoria es obligatorio';
+            $_SESSION['error'] = 'El campo categoria es obligatorio';
 
             return    header('Location: ' . url('categoria/editar/' . $idCategoria));
         }

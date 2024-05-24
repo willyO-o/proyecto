@@ -29,11 +29,7 @@
 
             <div class="col-6">
 
-                <?php if (isset($_GET['error'])) : ?>
-                    <div class="alert alert-danger" role="alert">
-                        <?= $_GET['error'] ?>
-                    </div>
-                <?php endif; ?>
+                <?= erroresValidacion() ?>
 
                 <div class="card card-primary">
                     <div class="card-header">
@@ -51,7 +47,7 @@
                         ?>
                             <div class="form-group">
                                 <label for="categoria">Nombre Categoria</label>
-                                <input type="text" class="form-control" name="categoria" id="categoria"  value="<?=$categoria["categoria"] ?? ""?>" placeholder="ingrese nombre de la categoria" required>
+                                <input type="text" class="form-control" name="categoria" id="categoria"  value="<?=$categoria["categoria"] ?? ""?>" placeholder="ingrese nombre de la categoria" >
                             </div>
 
 

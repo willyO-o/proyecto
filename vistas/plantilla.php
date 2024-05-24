@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
 <html lang="es">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -60,8 +58,23 @@
     <script src="<?= BASE_URL ?>plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="<?= BASE_URL ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="<?= BASE_URL ?>plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
     <!-- AdminLTE App -->
     <script src="<?= BASE_URL ?>plugins/adminlte/js/adminlte.min.js"></script>
+
+
+    <script>
+
+
+        $(document).ready(function() {
+
+            bsCustomFileInput.init();
+
+        });
+ 
+    </script>
 </body>
 
 </html>

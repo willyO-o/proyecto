@@ -2,5 +2,9 @@ Options All -Indexes
 
 RewriteEngine On
 
+# Excluir directorios específicos como plugins, css, js, images de ser reescritos
+RewriteCond %{REQUEST_URI} !^/plugins/
+RewriteCond %{REQUEST_URI} !^/subidas/
+
 # Ruta con parámetro opcional para cualquier combinación de rutas
 RewriteRule ^(.*?)/?([0-9]*)$ index.php?ruta=$1&parametro=$2 [QSA,L]

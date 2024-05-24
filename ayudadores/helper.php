@@ -41,3 +41,28 @@ if (!function_exists('cargarVista')) {
         return include 'vistas/' . $archivo . '.php';
     }
 }
+
+
+
+if (!function_exists('erroresValidacion')) {
+    function erroresValidacion()
+    {
+        if (empty($_SESSION['error'])) {
+            return "";
+        }
+
+
+        $errores = $_SESSION['error'];
+        unset($_SESSION['error']);
+
+        $html = '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
+
+        foreach ($errores as $error) {
+            $html .= "<p class='mb-0'>" . $error . "</p>";
+        }
+
+        $html .= ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+
+        return $html;
+    }
+}

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 class Plantilla
 {
     public function ejecutar()
@@ -42,7 +42,7 @@ class Plantilla
 
 
         } catch (Exception $e) {
-            echo $e->getMessage();
+            $mensajeExcepcion= $e->getMessage();
 
             include 'vistas/404.php';
         }
