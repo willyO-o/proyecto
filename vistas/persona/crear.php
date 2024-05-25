@@ -1,3 +1,12 @@
+<?php
+
+$titulo = empty($persona["id_persona"]) ? "Registrar Persona" : "Editar Persona";
+
+$accion=empty($persona["id_persona"]) ? "registrar" : "actualizar";
+
+?>
+
+
 <div class="content">
 
 
@@ -32,70 +41,54 @@
 
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Registrar Persona</h3>
+                        <h3 class="card-title"><?= $titulo ?></h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form>
+                    <form method="POST" action="<?= BASE_URL ?>persona/<?= $accion ?>">
+
+
+                        <?php if (!empty($persona["id_persona"])) : ?>
+                            <input type="hidden" name="id_persona" value="<?= $persona["id_persona"] ?>">
+                        <?php endif; ?>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="nombres">Nombres</label>
-                                <input type="text" class="form-control" id="nombres" name="nombres" placeholder="Ingrese Nombres">
+                                <label for="nombres">nombres</label>
+                                <input type="text" class="form-control" id="nombres" name="nombres" value="<?= $persona["nombres"] ?? "" ?>" placeholder="Ingrese Nombres">
                             </div>
                             <div class="form-group">
-                                <label for="nombre_articulo">Nombres</label>
-                                <input type="text" class="form-control" id="nombre_articulo" name="nombre_articulo" placeholder="Ingrese Nombre del Articulo">
-                            </div>
-                            <div class="form-group">
-                                <label for="descripcion">Descripcion</label>
-                                <textarea type="password" class="form-control" id="descripcion" name="descripcion" placeholder="breve descripcion"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputFile">Imagen</label>
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="exampleInputFile" name="imagen">
-                                        <label class="custom-file-label" for="exampleInputFile">Buscar Archivo</label>
-                                    </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Subir Imagen</span>
-                                    </div>
-                                </div>
+                                <label for="apellidos">Apellidos</label>
+                                <input type="text" class="form-control" id="apellidos" name="apellidos" value="<?= $persona["apellidos"] ?? "" ?>" placeholder="Ingrese Apellidos">
                             </div>
 
 
                             <div class="row">
                                 <div class="form-group col-6">
-                                    <label for="fecha_adquisicion">Fecha Adquisicion</label>
-                                    <input type="date" class="form-control" id="fecha_adquisicion" name="fecha_adquisicion" placeholder="breve descripcion">
+                                    <label for="telefono">Telefono / Celular</label>
+                                    <input type="number" class="form-control" id="telefono" name="telefono" value="<?= $persona["telefono"] ?? "" ?>" placeholder="Ingrese su numero telefonico">
                                 </div>
                                 <div class="form-group col-6">
-                                    <label for="costo_adquisicion">Costo Adquisicion</label>
-                                    <input type="number" class="form-control" id="costo_adquisicion" name="costo_adquisicion" placeholder="Bs.">
+                                    <label for="email">E-mail</label>
+                                    <input type="email" class="form-control" id="email" name="email" value="<?= $persona["email"] ?? "" ?>" placeholder="por ejemplo: alguien@gmail.com">
                                 </div>
 
                             </div>
 
                             <div class="row">
                                 <div class="form-group col-6">
-                                    <label for="id_categoria">Categoria</label>
-                                    <select  class="custom-select" id="id_categoria" name="id_categoria">
-                                    <option value="">Seleccione</option>
-
-                                    <?php foreach ($categorias as $categoria) :  ?>
-                                            <option value="<?= $categoria["id_categoria"] ?>"><?= $categoria["categoria"] ?></option>
-                                        <?php endforeach; ?>
+                                    <label for="departamento">Categoria</label>
+                                    <select class="custom-select" id="departamento" name="departamento">
+                                        <option value="">Seleccione</option>
+                                        <option value="SISTEMAS" <?= ($persona["departamento"] ?? "") == "SISTEMAS" ? "selected" : "" ?>>SISTEMAS</option>
+                                        <option value="RECURSOS HUMANOS" <?= ($persona["departamento"] ?? "") == "RECURSOS HUMANOS" ? "selected" : "" ?>>RECURSOS HUMANOS</option>
+                                        <option value="MARKETING" <?= ($persona["departamento"] ?? "") == "MARKETING" ? "selected" : "" ?>>MARKETING</option>
+                                        <option value="ATENCION AL CLIENTE" <?= ($persona["departamento"] ?? "") == "ATENCION AL CLIENTE" ? "selected" : "" ?>>ATENCION AL CLIENTE</option>
+                                        <option value="DIRECCION" <?= ($persona["departamento"] ?? "") == "DIRECCION" ? "selected" : "" ?>>DIRECCION</option>
+                                        <option value="PLANIFICACION" <?= ($persona["departamento"] ?? "") == "PLANIFICACION" ? "selected" : "" ?>>PLANIFICACION</option>
                                     </select>
+
                                 </div>
-                                <div class="form-group col-6">
 
-                                    <label for="id_persona_responsable">Persona Responsable</label>
-                                    <select class="custom-select" id="id_persona_responsable" name="id_persona_responsable">
-                                            <option value="">Seleccione</option>
-
-
-                                    </select>
-                                </div>
 
                             </div>
 
@@ -103,7 +96,10 @@
                         <!-- /.card-body -->
 
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i>
+                                GUARDAR
+                            </button>
                         </div>
                     </form>
                 </div>

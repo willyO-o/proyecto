@@ -13,6 +13,7 @@ $rutas = [
     'login' => 'Autenticacion::login', 
     'registro' => 'Autenticacion::registro',
     'salir' => 'Autenticacion::salir',
+    'autenticar' => 'Autenticacion::autenticar',
 
     'principal' => 'Principal::principal',
 

@@ -31,7 +31,7 @@ class ModeloPersona extends Conexion{
     
         public function registrar($datos)
         {
-            $sql = "INSERT INTO persona (nombres,apellidos,telefono,email,departamento) VALUES ('{$datos['nombre']}','{$datos['apellido']}',{$datos['edad']})";
+            $sql = "INSERT INTO persona (nombres,apellidos,telefono,email,departamento) VALUES ('{$datos['nombres']}','{$datos['apellidos']}',{$datos['telefono']} ,'{$datos['email']}','{$datos['departamento']}')";
     
             return $this->ejecutarInsercion($sql);
         }
@@ -45,7 +45,7 @@ class ModeloPersona extends Conexion{
     
         public function actualizar($datos,$idPersona)
         {
-            $sql = "UPDATE persona SET nombre = '{$datos['nombre']}', apellido = '{$datos['apellido']}', edad = {$datos['edad']} WHERE id_persona = $idPersona";
+            $sql = "UPDATE persona SET nombres = '{$datos['nombres']}', apellidos = '{$datos['apellidos']}', telefono = {$datos['telefono']}, email = '{$datos['email']}', departamento = '{$datos['departamento']}' WHERE id_persona = $idPersona";
     
             return $this->conexion->query($sql);
             

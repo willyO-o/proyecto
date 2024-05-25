@@ -6,7 +6,7 @@ class Plantilla
     {
         try {
 
-            $vista = empty($_GET['ruta']) ?  'principal' : $_GET['ruta'];
+            $vista = empty($_GET['ruta']) ?  'login' : $_GET['ruta'];
 
             $rutas = array_keys($GLOBALS['rutas']);
 

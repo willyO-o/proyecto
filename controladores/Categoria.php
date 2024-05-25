@@ -1,8 +1,8 @@
 <?php
 
 require_once 'modelos/ModeloCategoria.php';
-
-class Categoria
+require_once 'controladores/ControlSesion.php';
+class Categoria extends ControlSesion
 {
 
     protected $modeloCategoria;
@@ -10,6 +10,7 @@ class Categoria
 
     public function __construct()
     {
+        parent::__construct();
         $this->modeloCategoria = new ModeloCategoria();
     }
 

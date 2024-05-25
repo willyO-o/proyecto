@@ -22,7 +22,7 @@
 
         <div class="row">
             <div class="col-12">
-                <a class="btn btn-primary" href="<?= BASE_URL ?>articulo/crear">
+                <a class="btn btn-primary" href="<?= BASE_URL ?>persona/crear">
                     Registrar Persona
                 </a>
                 <div class="card">

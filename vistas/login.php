@@ -17,16 +17,18 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="index2.html"><b>Admin</b>LTE</a>
+    <a href="index2.html"><b>INVENTARIOS</b>POSGRADO</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Iniciar Sesión </p>
 
-      <form action="index3.html" method="post">
+      <?= erroresValidacion()?>
+
+      <form action="<?= BASE_URL?>autenticar" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="usuario" class="form-control" placeholder="Nombre de Usuario" name="usuario">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -34,7 +36,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Clave de usuario" name="clave">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -54,7 +56,7 @@
       </form>
 
       <p class="mb-0 mt-1">
-        <a href="<?=BASE_URL ?>registrar" class="text-center">Si no tiene cuenta puede Registrarse</a>
+        <!-- <a href="<?=BASE_URL ?>registrar" class="text-center">Si no tiene cuenta puede Registrarse</a> -->
       </p>
     </div>
     <!-- /.login-card-body -->
