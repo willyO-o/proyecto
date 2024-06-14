@@ -50,8 +50,10 @@ class Persona extends ControlSesion
             "nombres" => post('nombres'),
             "apellidos" => post('apellidos'),
             "telefono" => post('telefono'),
-            "email" => post('email'),
-            "departamento" => post('departamento'),
+            "correo" => post('correo'),
+            "clave" => post('clave'),
+            "estado" => post('estado'),
+            "rol" => post('rol'),
         ];
 
 
@@ -69,6 +71,9 @@ class Persona extends ControlSesion
             return header('Location:' . BASE_URL . 'persona/crear');
         }
 
+        $datos['clave'] = md5($datos['clave']);
+
+        
         $this->modeloPersona->registrar($datos);
 
         return header('Location:' . BASE_URL . 'persona');
@@ -89,8 +94,9 @@ class Persona extends ControlSesion
             "nombres" => post('nombres'),
             "apellidos" => post('apellidos'),
             "telefono" => post('telefono'),
-            "email" => post('email'),
-            "departamento" => post('departamento'),
+            "correo" => post('correo'),
+            "estado" => post('estado'),
+            "rol" => post('rol'),
         ];
 
         $erroresValidacion = false;
@@ -106,13 +112,16 @@ class Persona extends ControlSesion
 
         if ($erroresValidacion) {
 
-            return header('Location:' . BASE_URL . 'persona/editar/'.$idPersona);
+            return header('Location:' . BASE_URL . 'persona/editar/' . $idPersona);
         }
 
-        $this->modeloPersona->actualizar($datos,$idPersona);
+
+        if (post('clave') != null && post('clave') != "") {
+            $datos['clave'] = md5(post('clave'));
+        }
+
+        $this->modeloPersona->actualizar($datos, $idPersona);
 
         return header('Location:' . BASE_URL . 'persona');
-        
     }
-
 }

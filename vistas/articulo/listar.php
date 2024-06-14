@@ -25,6 +25,10 @@
                 <a class="btn btn-primary" href="<?= BASE_URL?>articulo/crear">
                     Registrar
                 </a>
+
+                <a class="btn btn-danger mx-5" href="<?= BASE_URL?>articulo/reporte" target="_brank">
+                    Reporte
+                </a>
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">Listado de Articulos</h3>
@@ -57,15 +61,23 @@
                                 
                                 <tr>
                                     <td><?= $articulo["id_articulo"]?></td>
-                                    <td><?= $articulo["imagen"]?></td>
+
+                                    <td>
+
+                                        <img src="<?= BASE_URL?>subidas/<?= $articulo["imagen"]?>" alt="imagen del producto" width="50">
+                                    </td>
                                     <td><?= $articulo["nombre_articulo"]?></td>
                                     <td><?= $articulo["descripcion"]?></td>
                                     <td><?= $articulo["fecha_adquisicion"]?></td>
+                                    <td><?= $articulo["costo_adquisicion"]?></td>
                                     <td><?= $articulo["categoria"]?></td>
-                                    <td><?= $articulo["responsable"]?></td>
+                                    <td>
+                                        <?= $articulo["nombres"]?>
+                                        <?= $articulo["apellidos"]?>
+                                </td>
                                     <td><?= $articulo["estado"]?></td>
                                     <td>
-                                        <a href="<?= BASE_URL?>articulo/editar/<?= $articulo["id_articulo"]?>" class="btn btn-warning">Editar</a>
+                                        <!-- <a href="<?= BASE_URL?>articulo/editar/<?= $articulo["id_articulo"]?>" class="btn btn-warning">Editar</a> -->
                                         <a href="<?= BASE_URL?>articulo/eliminar/<?= $articulo["id_articulo"]?>" 
                                         class="btn btn-danger" onclick="return confirm('¿Estas seguro de eliminar este registro?')"
                                         >Eliminar</a>

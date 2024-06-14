@@ -29,8 +29,6 @@
                     <div class="card-header">
                         <h3 class="card-title">Listado de Personas</h3>
 
-
-
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">
@@ -41,8 +39,9 @@
                                     <th>Nombre Completo</th>
 
                                     <th>Telefono / Celular</th>
-                                    <th>E-mail</th>
-                                    <th>Departamento</th>
+                                    <th>Correo</th>
+                                    <th>Estado</th>
+                                    <th>Rol </th>
 
                                     <th>.::Acciones::.</th>
                                 </tr>
@@ -55,8 +54,9 @@
                                         <td><?= $persona["id_persona"] ?></td>
                                         <td><?= $persona["nombres"] ?> <?= $persona["apellidos"] ?></td>
                                         <td><?= $persona["telefono"] ?></td>
-                                        <td><?= $persona["email"] ?></td>
-                                        <td><?= $persona["departamento"] ?></td>
+                                        <td><?= $persona["correo"] ?></td>
+                                        <td><?= $persona["estado"] ?></td>
+                                        <td><?= $persona["rol"] ?></td>
 
                                         <td>
                                             <a href="<?= BASE_URL ?>persona/editar/<?= $persona["id_persona"] ?>" class="btn btn-warning">Editar</a>

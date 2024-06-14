@@ -1,3 +1,11 @@
+<?php
+
+$estados = [
+    'NUEVO', 'BUEN ESTADO', 'MAL ESTADO', 'DESECHADO'
+];
+
+?>
+
 <div class="content">
 
 
@@ -13,7 +21,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                            <li class="breadcrumb-item active">Categorias</li>
+                            <li class="breadcrumb-item active">Articulos</li>
                             <li class="breadcrumb-item active">Crear</li>
                         </ol>
                     </div><!-- /.col -->
@@ -36,7 +44,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form>
+                    <form method="POST" action="<?= BASE_URL ?>articulo/registrar" enctype="multipart/form-data">
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="nombre_articulo">Nombre del Articulo</label>
@@ -75,10 +83,10 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label for="id_categoria">Categoria</label>
-                                    <select  class="custom-select" id="id_categoria" name="id_categoria">
-                                    <option value="">Seleccione</option>
+                                    <select class="custom-select" id="id_categoria" name="id_categoria">
+                                        <option value="">Seleccione</option>
 
-                                    <?php foreach ($categorias as $categoria) :  ?>
+                                        <?php foreach ($categorias as $categoria) :  ?>
                                             <option value="<?= $categoria["id_categoria"] ?>"><?= $categoria["categoria"] ?></option>
                                         <?php endforeach; ?>
                                     </select>
@@ -87,9 +95,26 @@
 
                                     <label for="id_persona_responsable">Persona Responsable</label>
                                     <select class="custom-select" id="id_persona_responsable" name="id_persona_responsable">
-                                            <option value="">Seleccione</option>
+                                        <option value="">Seleccione</option>
 
+                                        <?php foreach ($personas as $persona) :  ?>
+                                            <option value="<?= $persona["id_persona"] ?>"><?= $persona["nombres"] . " " . $persona["apellidos"] ?></option>
+                                        <?php endforeach; ?>
 
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label for="estado">Estado del Articulo</label>
+                                    <select class="custom-select" id="estado" name="estado">
+                                        <option value="">Seleccione</option>
+
+                                        <?php foreach ($estados as $estado) :  ?>
+                                            <option value="<?= $estado ?>" <?= ($persona["estado"] ?? "") == $estado ? "selected" : "" ?>><?= $estado ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
 

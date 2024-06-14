@@ -55,7 +55,7 @@ if (!function_exists('erroresValidacion')) {
         $errores = $_SESSION['error'];
         unset($_SESSION['error']);
 
-        $html = '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
+        $html = '<div class="alert alert-danger alert-dismissible fade show" role="alert"> <strong>Error de Validacion:</strong> <br>';
 
         foreach ($errores as $error) {
             $html .= "<p class='mb-0'>" . $error . "</p>";

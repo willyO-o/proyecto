@@ -1,17 +1,11 @@
 <?php
 const BASE_URL="https://proyecto.local/";
 
-// $rutas=[
-//     "registro",
-//     "login",
-//     "principal",
-//     "salir"
-// ];
+
 
 
 $rutas = [
     'login' => 'Autenticacion::login', 
-    'registro' => 'Autenticacion::registro',
     'salir' => 'Autenticacion::salir',
     'autenticar' => 'Autenticacion::autenticar',
 
@@ -20,8 +14,12 @@ $rutas = [
     'articulo/crear' => 'Articulo::crear',
     'articulo/editar' => 'Articulo::editar',
     'articulo/eliminar' => 'Articulo::eliminar',
-    'articulo/ver' => 'Articulo::ver',
     'articulo/listar' => 'Articulo::listar',
+    'articulo' => 'Articulo::listar',
+    'articulo/registrar' => 'Articulo::registrar',
+    'articulo/actualizar' => 'Articulo::actualizar',
+    'articulo/reporte' => 'Articulo::reporte',
+    
 
 
     'categoria' => 'Categoria::listar',
@@ -30,7 +28,6 @@ $rutas = [
     'categoria/editar' => 'Categoria::editar',
     'categoria/actualizar' => 'Categoria::actualizar',
     'categoria/eliminar' => 'Categoria::eliminar',
-    'categoria/ver' => 'Categoria::ver',
 
     'persona' => 'Persona::listar',
     'persona/crear' => 'Persona::crear',
@@ -38,5 +35,6 @@ $rutas = [
     'persona/editar' => 'Persona::editar',
     'persona/actualizar' => 'Persona::actualizar',
     'persona/eliminar' => 'Persona::eliminar',
-    'persona/ver' => 'Persona::ver',
+
+
 ];

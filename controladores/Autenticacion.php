@@ -1,14 +1,15 @@
 <?php
 
-require_once 'modelos/ModeloUsuario.php';
+require_once 'modelos/ModeloPersona.php';
+
 class Autenticacion
 {
-    protected $modeloUsuario;
+    protected $modeloPersona;
 
 
     public function __construct()
     {
-        $this->modeloUsuario = new ModeloUsuario();
+        $this->modeloPersona = new ModeloPersona();
     }
 
     public function login()
@@ -19,7 +20,7 @@ class Autenticacion
     public function registro()
     {
 
-         include 'vistas/registro.php';
+        include 'vistas/registro.php';
     }
 
     public function autenticar()
@@ -27,15 +28,9 @@ class Autenticacion
         $usuario = post('usuario');
         $clave = post('clave');
 
-        // if(empty($usuario) || empty($clave)){
-            
-        //     $_SESSION['error'][] = 'Usuario y/o clave incorrectos';
-        //     return;
-        // }
+        $resultado = $this->modeloPersona->validarDatos($usuario, $clave);
 
-        $resultado= $this->modeloUsuario->validar_datos($usuario,$clave);
-
-        if(empty($resultado)){
+        if (empty($resultado)) {
 
             $_SESSION['error'][] = 'Usuario y/o clave incorrectos';
 
@@ -43,11 +38,10 @@ class Autenticacion
         }
 
 
-        $_SESSION['usuario'] = $resultado['usuario'];
+        $_SESSION['usuario'] = $resultado['nombres'].' '.$resultado['apellidos'];
         $_SESSION['logueado'] = true;
 
         header('Location: ' . BASE_URL . 'principal');
-        
     }
 
     public function salir()
