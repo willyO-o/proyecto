@@ -112,11 +112,16 @@ class Articulo extends ControlSesion
         $pdf = new FPDF();
         $pdf->AddPage();
         $pdf->SetFont('Arial', 'B', 16);
-        $pdf->Cell(0, 10, 'Hola Mundo', 0, 1, 'C');
+        $pdf->Cell(0, 10, 'Listado de Articulos', 0, 1, 'C');
 
+
+        $directorio= realpath("subidas/img/");
+
+        $pdf->Image($directorio."/logo.png",10,10,35,15);
 
         $pdf->SetFont('Arial', 'B', 8);
 
+        $pdf->Ln();
         $pdf->Cell(5,10,'#',1);
         $pdf->Cell(50, 10, 'Nombre Articulo', 1);
         $pdf->Cell(20, 10, 'F.compra', 1);
