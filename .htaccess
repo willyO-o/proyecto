@@ -1,5 +1,15 @@
+# proteger todos los directiorios que no contengas un archivo index.php o index.html mostrando un error
 Options All -Indexes
 
+# activar la reescritura de las URLs
 RewriteEngine On
 
-RewriteRule ^([-a-zA-Z0-9/]+)$ index.php?ruta=$1
+
+# Excluir directorios específicos como plugins, css, js, images de ser reescritos
+RewriteCond %{REQUEST_URI} !^/plugins/
+RewriteCond %{REQUEST_URI} !^/subidas/
+
+
+# Ruta con parámetro opcional para cualquier combinación de rutas
+
+RewriteRule ^(.*?)/?([0-9]*)$ index.php?ruta=$1&parametro=$2 [QSA,L]
